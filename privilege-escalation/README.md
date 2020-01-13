@@ -1,7 +1,7 @@
 # Privilege escalation 
 This scenario demonstrates the potential for privilege escalation and network policy bypass by a malicious insider or compromise of their credentials with the ability to create pods in a namespace leading to full cluster access.
 
-[![asciicast](https://asciinema.org/a/293454.svg)](https://asciinema.org/a/293454)\
+[![asciicast](https://asciinema.org/a/293454.svg)](https://asciinema.org/a/293454)
 
 NOTE: This scenario will run container with root access, and it set for demo purposes only. We strongly recommend **NOT RUNNING IT ON A LIVE CLUSTER**
 
