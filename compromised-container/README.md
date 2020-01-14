@@ -2,6 +2,7 @@
 
 This scenario demonstrates the potential for privilege escalation and lateral movement as a result of a pod compromise in a Kubernetes cluster with commonly-found configurations leading to full cluster access.
 
+## Demo
 [![asciicast](https://asciinema.org/a/F8NCWjE7Akhtcj8ZUePZmiF8E.svg)](https://asciinema.org/a/F8NCWjE7Akhtcj8ZUePZmiF8E)
 
 NOTE: This scenario will run a compromised container with root access, and it set for demo purposes only. We strongly recommend **NOT RUNNING IT ON A LIVE CLUSTER**
