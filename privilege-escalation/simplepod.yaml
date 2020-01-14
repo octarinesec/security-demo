@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: simplepod
+  namespace: myapp
+  labels:
+    app: simplepod
+spec:
+  containers:
+    - image: docker.io/library/busybox:1.28.4
+      name: simplepod
+      command:
+        - sh
+        - -c
+        - tail -f /dev/null

@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: hostnetwork
+  namespace: myapp
+  labels:
+    app: hostnetwork
+spec:
+  hostNetwork: true
+  dnsPolicy: ClusterFirstWithHostNet
+  containers:
+    - image: docker.io/library/busybox:1.28.4
+      name: hostnetwork
+      command:
+        - sh
+        - -c
+        - tail -f /dev/null

@@ -1,0 +1,91 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: myapp
+
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  creationTimestamp: null
+  namespace: myapp
+  name: dashboard-secret
+type: Opaque
+data:
+  username: Hacker
+  password: ZXhwbG9pdGdvZXNoZXJl
+---
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  name: dashboard
+  namespace: myapp
+  labels:
+    app: dashboard
+spec:
+  type: NodePort
+  ports:
+    - port: 8080
+      targetPort: http
+      protocol: TCP
+      nodePort: 30000
+      name: dashboard
+  selector:
+    app: dashboard
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  name: dashboard
+  namespace: myapp
+  labels:
+    app: dashboard
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: dashboard
+  template:
+    metadata:
+      labels:
+        app: dashboard
+    spec:
+      serviceAccountName: default
+      containers:
+        - name: dashboard
+          image: "securekubernetes/example-dashboard:latest"
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: backend
+              containerPort: 3000
+              protocol: TCP
+          env:
+            - name: DEPLOYTYPE
+              value: DEV
+        - name: authproxy
+          image: "securekubernetes/auth-proxy:latest"
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: http
+              containerPort: 8000
+              protocol: TCP
+          env:
+            - name: UPSTREAM_IP
+              value: "localhost"
+            - name: UPSTREAM_PORT
+              value: "3000"
+            - name: AUTH_DIR
+              value: webshell
+            - name: WEBUSERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: dashboard-secret
+                  key: username
+            - name: WEBPASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: dashboard-secret
+                  key: password
