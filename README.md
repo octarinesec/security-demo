@@ -1,3 +1,9 @@
+<p align="center">
+  <a href="https://octarinesec.com">
+    <img src="./img/logo_only.png?raw=true" width="200"/>
+  </a>
+</p>
+
 # Octarine Security Demo
 
 This repository is to help demonstrate how to hack into k8s cluster using privilege escalation. 
