@@ -8,8 +8,8 @@
 
 
 This repository is set to help people in the community understand Kubernetes security using hands-on, real-life hacking examples. 
-Going through the examples listed here, you'll be able to hack into a Kubernetes environments set specially for this purpose to help you think like a hacker for a few minutes.
-We hope this experience can help educate you and your team on how critical security is in Kubernetes and can hopfully help raise awareness on ways to prevent security incidents.
+Going through the examples listed here, you'll be able to hack into a Kubernetes environments, set especially for this purpose, to help you think like a hacker for a few minutes.
+We hope this experience can help educate you and your team on how critical security is in Kubernetes, and can hopfully help raise awareness on ways to prevent security incidents.
 Many of the scenarios are based on the work done by [bgeesaman](https://github.com/bgeesaman/k8s-security-demos/blob/master/README.md)  
 
 ## How to use it?
