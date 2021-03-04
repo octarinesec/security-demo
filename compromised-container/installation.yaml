@@ -13,8 +13,8 @@ metadata:
   name: dashboard-secret
 type: Opaque
 data:
-  username: Hacker
-  password: ZXhwbG9pdGdvZXNoZXJl
+  username: SGFja2VyCg==
+  password: ZXhwbG9pdGdvZXNoZXJlCg==
 ---
 apiVersion: v1
 kind: Service
